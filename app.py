@@ -1,13 +1,13 @@
-from flask import Flask, request, jsonify,render_template
+from flask import Flask, request, jsonify,send_file
 from flask_cors import CORS
 import recommendation
 
 app = Flask(__name__)
 CORS(app)
 
-# @app.rout('/')
-# def index():
-#         return render_template('movie.html')
+@app.route('/')
+def index():
+        return send_file('movie.html',mimetype='text/html')
 
 @app.route('/movie', methods=['GET'])#'''This function is for content based recommender system results'''
 def recommend_movies():

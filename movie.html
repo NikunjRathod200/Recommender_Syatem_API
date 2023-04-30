@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Movie Recommendation System</title>
@@ -60,6 +59,8 @@
 		<label for="movie_title">Enter a movie title:</label><br>
 		<input type="text" id="movie_title" name="movie_title"><br><br>
 		<button type="button" onclick="getRecommendations()">Get Recommendations</button>
+		<button type="button" onclick="getRecommendations1()">Get Recommendations1</button>
+		
 	</form>
 	<div id="recommendations"></div>
 
@@ -80,6 +81,29 @@
 							row.insertCell().innerText = movie.Movie_Id;
 							row.insertCell().innerText = movie.Name;
 							row.insertCell().innerText = movie.Genres;
+						});
+						recommendationsDiv.appendChild(table);
+					} else {
+						recommendationsDiv.innerText = "No recommendations found.";
+					}
+				})
+				.catch(error => console.error(error));
+		}
+
+		function getRecommendations1() {
+			var title = document.getElementById("movie_title").value;
+			var url = "http://localhost:5000/user?id=" + encodeURIComponent(title);
+			fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					var recommendationsDiv = document.getElementById("recommendations");
+					recommendationsDiv.innerHTML = "";
+					if (data.length > 0) {
+						var table = document.createElement("table");
+						table.innerHTML = "<tr><th>Name</th></tr>";
+						data.forEach(movie => {
+							var row = table.insertRow();
+							row.insertCell().innerText = movie.Name;
 						});
 						recommendationsDiv.appendChild(table);
 					} else {
