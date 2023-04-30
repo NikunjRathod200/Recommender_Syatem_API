@@ -5,9 +5,9 @@ import recommendation
 app = Flask(__name__)
 CORS(app)
 
-#@app.route('/')
+# @app.rout('/')
 # def index():
-#         return render_template('index.html')
+#         return render_template('movie.html')
 
 @app.route('/movie', methods=['GET'])#'''This function is for content based recommender system results'''
 def recommend_movies():
