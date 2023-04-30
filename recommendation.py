@@ -72,7 +72,7 @@ def results(movie_name):
                 return recommendations.to_dict('records')
         
 
-results('Inception')
+#results('Inception')
 
 def coll(target_movie_id):
         user_item_matrix = pd.read_csv('datasets/user_item_matrix.csv')
