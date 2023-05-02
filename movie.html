@@ -103,7 +103,7 @@
 						table.innerHTML = "<tr><th>Name</th></tr>";
 						data.forEach(movie => {
 							var row = table.insertRow();
-							row.insertCell().innerText = movie.Name;
+							row.insertCell().innerText = movie;
 						});
 						recommendationsDiv.appendChild(table);
 					} else {

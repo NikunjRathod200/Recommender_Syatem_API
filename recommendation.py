@@ -66,9 +66,9 @@ def results(movie_name):
 
         else:
                 recommendations = recommend_movies(movie_name, find_movie, combine_result, transform_result)
-                print(combine_result)
-                print(transform_result)
-                print(recommendations.to_dict('records'))
+                # print(combine_result)
+                # print(transform_result)
+                # print(recommendations.to_dict('records'))
                 return recommendations.to_dict('records')
         
 
@@ -92,7 +92,7 @@ def coll(target_movie_id):
         recommended_movies_movie = recommended_movies_movie[['original_title']] # select only the 'original_title' column
         recommended_movies_movie = recommended_movies_movie['original_title'].unique() # get unique movie titles
         recommended_movies_movie_list = recommended_movies_movie.tolist() # convert to a list
-        print(recommended_movies_movie_list)
+        # print(recommended_movies_movie_list)
         return recommended_movies_movie_list
 
 # coll(100)
